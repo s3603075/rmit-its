@@ -1,0 +1,18 @@
+.button-spacing{
+    padding-top: 20px;
+}
+
+.jumbotron{
+    background-color: #f5f5dc !important;
+}
+
+@media (min-width: 992px) {
+    .row-offset {
+        margin-left: 12.5%;
+    }
+    .spacing{
+        padding-bottom: 50px;
+    }
+}
+
+

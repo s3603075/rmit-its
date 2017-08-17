@@ -1,0 +1,39 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body    {
+
+    margin-bottom: 60px;
+}
+
+* {
+    border-radius: 0 !important;
+}
+
+.top-spacing    {
+    margin-top: 20px;
+}
+
+.bottom-spacing {
+    margin-bottom: 20px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+}
+
+.footer-bottom {
+    background-color: #222;
+    color: #ffffff;
+    border-top: 1px solid #DDDDDD;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.footer-bottom p.pull-left {
+    padding-top: 6px;
+}
