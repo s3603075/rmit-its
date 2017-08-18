@@ -33,7 +33,7 @@ class ItsController extends Controller
             'id' => 'required'
         ]);
 
-        //Exception handling
+        //Exception handling?
         $ticket = Ticket::findOrFail($request['id']);
 
         $statusNo = $request['status'];
