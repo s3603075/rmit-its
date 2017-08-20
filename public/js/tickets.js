@@ -51,7 +51,8 @@ $(document).ready(function() {
 
             },
             error: function()   {
-                console.log(error.stack());
+                $(".table-responsive").hide();
+                $("#not-found").show();
             }
         });
     });
