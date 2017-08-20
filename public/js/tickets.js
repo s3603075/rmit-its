@@ -36,10 +36,10 @@ $(document).ready(function() {
                     $('#ticketlist').empty();
                     $.each(tickets, function(i, ticket)  {
                         var ticketView = '<tr><td>' + ticket.id + '</td>';
-                        ticketView += '<td>' + ticket.email + '</td>';
                         ticketView += '<td>' + ticket.firstname + '</td>';
                         ticketView += '<td>' + ticket.lastname + '</td>';
                         ticketView += '<td>' + ticket.os + '</td>';
+                        ticketView += '<td>' + ticket.status + '</td>';
                         ticketView += '<td><div class="text-center"><a href="/userticket/' + ticket.id + '" class="btn btn-default">View Details</a></div>'
 
                         $("#ticketlist").append(ticketView);

@@ -8,10 +8,10 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Email</th>
                     <th>Firstname</th>
                     <th>Lastname</th>
                     <th>OS</th>
+                    <th>Status</th>
                     <th></th>
                 </tr>
                 </thead>

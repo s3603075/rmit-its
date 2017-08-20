@@ -11,6 +11,7 @@
                         <th>Firstname</th>
                         <th>Lastname</th>
                         <th>OS</th>
+                        <th>Status</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -22,6 +23,7 @@
                         <td>{{$ticket->firstname}}</td>
                         <td>{{$ticket->lastname}}</td>
                         <td>{{$ticket->os}}</td>
+                        <td>{{$ticket->status}}</td>
                         <td><div class="text-center"><a href="/ticket/{{$ticket->id}}" class="btn btn-default">Edit Details</a></div></td>
                     </tr>
                 @endforeach
