@@ -20,6 +20,11 @@ body    {
     margin-bottom: 20px;
 }
 
+.comment-footer {
+    color:#8c8c8c;
+    font-style: italic;
+}
+
 .footer {
     position: absolute;
     bottom: 0;
