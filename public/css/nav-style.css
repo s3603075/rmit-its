@@ -11,19 +11,18 @@
 }
 
 .navbar-brand {
-    padding: 5px 30px;
-    height: 80px;
     line-height: 80px;
     position: absolute;
+    height: 80px;
+    padding: 5px 30px;
 }
 
 .navbar-toggle {
-    /* (80px - button height 34px) / 2 = 23px */
     margin-top: 23px;
     padding: 9px 10px !important;
 }
 
-/*Nav colours*/
+/*Nav colours from https://work.smarchal.com/twbscolor/*/
 
 .navbar-default {
     background: beige;
