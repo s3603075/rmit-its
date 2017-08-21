@@ -1,12 +1,6 @@
 @extends('layouts.default')
 @section('content')
     <div class="container top-spacing">
-        @if(session()->has('message'))
-            <div class="alert alert-success">{{session()->get('message')}}</div>
-        @endif
-        @if(session()->has('invalidstatus'))
-            <div class="alert alert-warning">{{session()->get('invalidstatus')}}</div>
-        @endif
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-primary">
                 <div class="panel-heading">Ticket #{{$ticket->id}}</div>
