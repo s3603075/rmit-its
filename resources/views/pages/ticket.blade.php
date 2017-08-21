@@ -12,8 +12,8 @@
                 <div class="panel-heading">Ticket #{{$ticket->id}}</div>
                 <div class="panel-body">
                     <div><b>Email:</b> {{$ticket->email}}</div>
-                    <div><b>First name:</b>{{$ticket->firstname}}</div>
-                    <div><b>Last name: </b>{{$ticket->lastname}}</div>
+                    <div><b>First name:</b> {{$ticket->firstname}}</div>
+                    <div><b>Last name:</b> {{$ticket->lastname}}</div>
                     <div><b>OS: </b>{{$ticket->os}}</div>
                 </div>
                 <div class="panel-footer">
