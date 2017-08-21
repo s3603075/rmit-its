@@ -37,9 +37,15 @@ Route::get('ticket/{id}', 'ItsController@ticket');
 
 /**Its submit comment/change status**/
 
-Route::post('submit-comment/{id}','ItsController@submitComment');
+Route::post('submit-comment/{id}',[
+    'as' => 'submit.comment.ticket',
+    'uses' => 'ItsController@submitComment'
+]);
 
-Route::post('ticket/change-status/', 'ItsController@changeStatus');
+Route::post('change-status/{id}', [
+    'as' => 'change.status.ticket',
+    'uses' => 'ItsController@changeStatus'
+]);
 
 /**User ticket search**/
 

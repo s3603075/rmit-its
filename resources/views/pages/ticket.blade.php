@@ -19,19 +19,12 @@
                 <div class="panel-footer">
                     <div class="container-fluid">
                         <div class="col-sm-3">
-                            <form action="change-status/" method="POST">
-                                <div class="form-group">
-                                    <select class="form-control" name="status" id="status" onchange='if(this.value != 0) { this.form.submit(); }'>
-                                        <option selected disabled>Change Status</option>
-                                        <option value="1">Pending</option>
-                                        <option value="2">In Progress</option>
-                                        <option value="3">Unresolved</option>
-                                        <option value="4">Resolved</option>
-                                    </select>
-                                </div>
-                                <input type="hidden" name="id" value="{{$ticket->id}}">
-                                {{ csrf_field() }}
-                            </form>
+                            {!! Form::open(array('route' => array('change.status.ticket', $ticket->id))) !!}
+                            <div class="form-group">
+                                {!! Form::select('status', ['0' => 'Change Status','1' => 'Pending', '2' => 'In Progress',
+                                '3' => 'Unresolved', '4' => 'Resolved'], null, ['class' => 'form-control change-status']) !!}
+                            </div>
+                            {!! Form::close() !!}
                         </div>
                         <div class="col-sm-3 col-sm-offset-6">
                             <div class="text-center">
@@ -52,14 +45,14 @@
                     <div class="bottom-spacing comment-footer">ITS support at {{$comment->created_at}}</div>
                 @endforeach
                 <h4>Add a Comment</h4>
-                <form action="/submit-comment/{{$ticket->id}}" method="POST">
-                    <div class="form-group">
-                        <textarea class="form-control" rows="4" name="body" id="body"></textarea>
-                    </div>
-                    {{ csrf_field() }}
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
+                {!! Form::open(array('route' => array('submit.comment.ticket', $ticket->id))) !!}
+                <div class="form-group">
+                    {!! Form::textarea('body', null, ['class' => 'form-control', 'rows' => 4]) !!}
+                </div>
+                {!!  Form::submit('Submit', ['class' => 'btn btn-primary'])!!}
+                {!! Form::close() !!}
             </div>
         </section>
     </div>
+    {!! Html::script('js/ticket-view.js') !!}
 @stop

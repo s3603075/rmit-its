@@ -25,16 +25,13 @@ class ItsController extends Controller
         return redirect()->back()->with('message', 'Comment Added');
     }
 
-    public function changeStatus(Request $request)
+    public function changeStatus($id, Request $request)
     {
-        //Edit error messages
         $this->validate($request, [
-            'status' => 'required|between:1,4',
-            'id' => 'required'
+            'status' => 'required|between:1,4'
         ]);
 
-        //Exception handling?
-        $ticket = Ticket::findOrFail($request['id']);
+        $ticket = Ticket::findOrFail($id);
 
         $statusNo = $request['status'];
         $status = 'Pending';

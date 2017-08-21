@@ -39,7 +39,7 @@
             </div>
             <div class="form-group {{ $errors->has('issue') ? ' has-error' : '' }}">
                 {!! Form::label('issue', 'Issue') !!}
-                {!! Form::textarea('issue', null, ['class' => 'form-control']) !!}
+                {!! Form::textarea('issue', null, ['class' => 'form-control', 'rows' => 6]) !!}
                 {{ $errors->first('issue', ':message') }}
             </div>
             {!!  Form::submit('Submit', ['class' => 'btn btn-primary'])!!}
