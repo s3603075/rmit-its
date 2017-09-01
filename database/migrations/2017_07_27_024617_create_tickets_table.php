@@ -20,8 +20,8 @@ class CreateTicketsTable extends Migration
             $table->string('firstname');
             $table->string('lastname');
             $table->string('os');
-            $table->string('issue');
-            $table->mediumText('status');
+            $table->mediumText('issue');
+            $table->string('status');
         });
 
 
