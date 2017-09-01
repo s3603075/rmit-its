@@ -23,6 +23,8 @@ class CreateTicketsTable extends Migration
             $table->string('issue');
             $table->mediumText('status');
         });
+
+
     }
 
     /**

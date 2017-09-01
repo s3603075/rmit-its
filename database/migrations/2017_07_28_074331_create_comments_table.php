@@ -16,8 +16,12 @@ class CreateCommentsTable extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->integer('ticket_id');
+            $table->unsignedInteger('ticket_id');
             $table->mediumText('body');
+
+            $table->foreign('ticket_id')
+                ->references('id')
+                ->on('tickets');
         });
     }
 
