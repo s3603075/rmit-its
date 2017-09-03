@@ -19,7 +19,10 @@
 
 Route::get('/', 'PagesController@home');
 
-Route::get('submit-ticket','PagesController@form');
+Route::get('submit-ticket',[
+    'middleware' => 'auth',
+    'uses' => 'PagesController@form'
+]);
 
 Route::get('about', 'PagesController@about');
 
@@ -56,4 +59,7 @@ Route::post('search', 'UserController@searchTicket');
 /**User view ticket**/
 
 Route::get('userticket/{id}','UserController@viewTicket');
+
+
+Auth::routes();
 
