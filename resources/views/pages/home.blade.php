@@ -16,7 +16,7 @@
                 <h2>View your tickets</h2>
                 <p>Viewing your current tickets' progress is simple. Enter your email into the search field and press
                     submit, and all your details and ticket comments will be displayed.</p>
-                <p><a class="btn btn-default" href="/findticket" role="button">View my tickets »</a></p>
+                <p><a class="btn btn-default" href="/search-ticket" role="button">View my tickets »</a></p>
             </div>
             <div class="col-md-3 ">
                 <h2>Submit your request</h2>
