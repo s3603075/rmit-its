@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Ticket;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SubmitController extends Controller
 {
@@ -18,9 +19,15 @@ class SubmitController extends Controller
             'issue' => 'required',
         ]);
 
-        $ticket = Ticket::create($request->all());
+        $userId = Auth::id();
+
+        //Fill initial details
+
+        $ticket = Ticket::create(array_merge($request->all(), ['user_id' => $userId]));
 
         $os = 'No OS';
+
+        //Save OS
 
         switch($request['os']) {
             case 1:
@@ -42,6 +49,7 @@ class SubmitController extends Controller
 
         $ticket->os = $os;
 
+        //Set status
         $status = 'Pending';
         $ticket->status = $status;
 
