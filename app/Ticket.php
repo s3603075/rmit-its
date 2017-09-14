@@ -13,4 +13,14 @@ class Ticket extends Model
     {
         return $this->hasMany('App\Comment');
     }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function($ticket) { // before delete() method call this
+            $ticket->comment()->delete();
+
+        });
+    }
 }

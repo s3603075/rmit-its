@@ -19,6 +19,12 @@ class AdminController extends Controller
 
     public function delete($id)
     {
-        return Ticker::destroy($id);
+        $ticket = Ticket::findorfail($id);
+
+        //TODO Delete foreign key constraint (comments)
+
+        $ticket->delete();
+
+        return "true";
     }
 }
