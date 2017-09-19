@@ -21,8 +21,6 @@ class AdminController extends Controller
     {
         $ticket = Ticket::findorfail($id);
 
-        //TODO Delete foreign key constraint (comments)
-
         $ticket->delete();
 
         return "true";

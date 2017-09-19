@@ -19,7 +19,7 @@ class TicketsTableSeeder extends Seeder
         for ($i = 0; $i < 10; $i++) {
             Ticket::create([
                 'user_id' => $faker->randomElement(User::pluck('id')->toArray()),
-                'email' => $faker->unique()->email,
+                'email' => $faker->randomElement(User::pluck('email')->toArray()),
                 'firstname' => $faker->firstName,
                 'lastname' => $faker->lastName,
                 'issue' => $faker->paragraph(3,true),

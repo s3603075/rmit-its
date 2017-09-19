@@ -12,7 +12,7 @@ class SubmitController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'email' => 'required|email',
+            //'email' => 'required|email',
             'firstname' => 'required|max:255|alpha_num',
             'lastname' => 'required|max:255|alpha_num',
             'os' => 'required|between:1,5',
@@ -20,10 +20,13 @@ class SubmitController extends Controller
         ]);
 
         $userId = Auth::id();
+        $userEmail = Auth::user()->email;
+
+        //TODO add auth user email, setup db:seed
 
         //Fill initial details
 
-        $ticket = Ticket::create(array_merge($request->all(), ['user_id' => $userId]));
+        $ticket = Ticket::create(array_merge($request->all(), ['user_id' => $userId, 'email' => $userEmail]));
 
         $os = 'No OS';
 

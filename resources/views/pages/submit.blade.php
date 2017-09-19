@@ -18,11 +18,11 @@
         <div class="col-md-6 col-md-offset-3 bottom-spacing">
             <h1>Submit a Request</h1>
             {!! Form::open(['action' => 'SubmitController@store']) !!}
-            <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}">
+            {{--<div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}">
                 {!! Form::label('email', 'E-Mail Address') !!}
                 {!! Form::email('email', null, ['class' => 'form-control']) !!}
                 {{ $errors->first('email', ':message') }}
-            </div>
+            </div>--}}
             <div class="form-group {{ $errors->has('firstname') ? ' has-error' : '' }}">
                 {!! Form::label('firstname', 'First Name') !!}
                 {!! Form::text('firstname', null, ['class' => 'form-control']) !!}
