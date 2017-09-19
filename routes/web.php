@@ -30,7 +30,10 @@ Route::get('faq', 'PagesController@faq');
 
 /**Submit new ticket**/
 
-Route::post('store', 'SubmitController@store');
+Route::post('store', [
+    'middleware' => 'auth',
+    'uses' => 'SubmitController@store'
+]);
 
 /**Its access only**/
 
