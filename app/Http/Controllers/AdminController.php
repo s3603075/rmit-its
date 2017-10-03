@@ -17,6 +17,16 @@ class AdminController extends Controller
         return Ticket::find($id);
     }
 
+    public function getComments($id)
+    {
+        $ticket = Ticket::findorfail($id);
+
+        $comments = $ticket->comment;
+
+        return response()->json($comments, 200);
+
+    }
+
     public function delete($id)
     {
         $ticket = Ticket::findorfail($id);

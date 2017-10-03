@@ -20,5 +20,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['middleware' => 'cors'], function () {
     Route::get('tickets', 'AdminController@index');
     Route::get('tickets/{id}', 'AdminController@show');
-    Route::delete('tickets/delete/{id}', 'AdminController@delete');
+    Route::get('tickets/comments/{id}', 'AdminController@getComments');
+    Route::delete('tickets/{id}', 'AdminController@delete');
 });
