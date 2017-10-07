@@ -21,5 +21,6 @@ Route::group(['middleware' => 'cors'], function () {
     Route::get('tickets', 'AdminController@index');
     Route::get('tickets/{id}', 'AdminController@show');
     Route::get('tickets/comments/{id}', 'AdminController@getComments');
+    Route::put('tickets/status/{id}', 'AdminController@changeStatus');
     Route::delete('tickets/{id}', 'AdminController@delete');
 });

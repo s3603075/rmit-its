@@ -17,6 +17,31 @@ class AdminController extends Controller
         return Ticket::find($id);
     }
 
+    public function changeStatus($id, Request $request)
+    {
+        $ticket = Ticket::findorfail($id);
+
+        $status = null;
+
+        switch($request['status'])  {
+            case 'Resolved':
+                $status = $request['status'];
+                break;
+            case 'Unresolved':
+                $status = $request['status'];
+                break;
+        }
+
+        if($status === null)    {
+            return response()->json($status, 400);
+        }
+
+        $ticket->status = $status;
+
+        return response()->json($status, 200);
+
+    }
+
     public function getComments($id)
     {
         $ticket = Ticket::findorfail($id);
