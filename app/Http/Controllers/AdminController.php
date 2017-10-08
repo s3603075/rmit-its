@@ -24,12 +24,14 @@ class AdminController extends Controller
         $status = null;
 
         switch($request['status'])  {
-            case 'Resolved':
-                $status = $request['status'];
+            case 1:
+                $status = 'Resolved';
                 break;
-            case 'Unresolved':
-                $status = $request['status'];
+            case 2:
+                $status = 'Unresolved';
                 break;
+            case 3:
+                $status = 'In Progress';
         }
 
         if($status === null)    {
@@ -38,7 +40,9 @@ class AdminController extends Controller
 
         $ticket->status = $status;
 
-        return response()->json($status, 200);
+        $ticket->save();
+
+        return response()->json($ticket, 200);
 
     }
 
