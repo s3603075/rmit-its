@@ -8,23 +8,26 @@ use Illuminate\Http\Request;
 
 class ItsController extends Controller
 {
-    //
+    //Handles comment submission
     public function submitComment($id, Request $request)
     {
+        //Sanitize input
         $this->validate($request, [
             'body' => 'required'
         ]);
 
-        //Need proper execption handling (404 page?)
+        //Find the ticket
         $ticket = Ticket::findOrFail($id);
-
+        //Create new ticket instance and populate with values in DB
         $comment = new Comment();
         $comment->body = $request['body'];
         $ticket->comment()->save($comment);
 
+        //Redirect with success message.
         return redirect()->back()->with('message', 'Comment Added');
     }
 
+    //Handles changing ticket status
     public function changeStatus($id, Request $request)
     {
         $this->validate($request, [
@@ -33,9 +36,11 @@ class ItsController extends Controller
 
         $ticket = Ticket::findOrFail($id);
 
+        //Set status and default if fail
         $statusNo = $request['status'];
         $status = 'Pending';
 
+        //Switch to corresponding value
         switch($statusNo) {
             case 1:
                 $status = 'Pending';
@@ -51,6 +56,7 @@ class ItsController extends Controller
                 break;
         }
 
+        //Save instance
         $ticket->status = $status;
         $ticket->save();
 

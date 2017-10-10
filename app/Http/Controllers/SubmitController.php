@@ -11,18 +11,18 @@ class SubmitController extends Controller
     //Store ticket details to database
     public function store(Request $request)
     {
+        //sanitize input
         $this->validate($request, [
-            //'email' => 'required|email',
             'firstname' => 'required|max:255|alpha_num',
             'lastname' => 'required|max:255|alpha_num',
             'os' => 'required|between:1,5',
             'issue' => 'required',
         ]);
 
+        //Get authentication details
+
         $userId = Auth::id();
         $userEmail = Auth::user()->email;
-
-        //TODO add auth user email, setup db:seed
 
         //Fill initial details
 
@@ -30,7 +30,7 @@ class SubmitController extends Controller
 
         $os = 'No OS';
 
-        //Save OS
+        //Save OS, switch to corresponding value
 
         switch($request['os']) {
             case 1:
@@ -56,6 +56,7 @@ class SubmitController extends Controller
         $status = 'Pending';
         $ticket->status = $status;
 
+        //Redirect with status
         if($ticket->save()) {
             return redirect()->back()->with('successMessage','Sent successfully.');
         }

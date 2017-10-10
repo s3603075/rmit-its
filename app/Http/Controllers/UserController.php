@@ -15,6 +15,7 @@ class UserController extends Controller
             'email' => 'required|email',
         ]);
 
+        //Get tickets specific to user
         $tickets = Ticket::where('email','=', $request['email'])
             ->get();
 
