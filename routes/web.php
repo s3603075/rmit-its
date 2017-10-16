@@ -19,6 +19,7 @@
 
 Route::get('/', 'PagesController@home');
 
+//Authentication for ticket submission form
 Route::get('submit-ticket',[
     'middleware' => 'auth',
     'uses' => 'PagesController@form'
@@ -29,7 +30,7 @@ Route::get('about', 'PagesController@about');
 Route::get('faq', 'PagesController@faq');
 
 /**Submit new ticket**/
-
+//Authentication for submitting a ticket
 Route::post('store', [
     'middleware' => 'auth',
     'uses' => 'SubmitController@store'
